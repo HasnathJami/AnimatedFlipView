@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
@@ -7,13 +7,33 @@
     android:layout_height="match_parent"
     tools:context=".AnimatedFlipViewHostActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <com.example.animated_flip_view.AnimatedFlipView
+        android:id="@+id/myEasyFlipView"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Animated Flip View"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:flipDuration="400">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <!-- Front Layout -->
+        <LinearLayout
+            android:id="@+id/frontViewContent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:orientation="vertical">
+            <include layout="@layout/flash_card_layout_front" />
+        </LinearLayout>
+
+        <!-- Back Layout -->
+        <LinearLayout
+            android:id="@+id/backViewContent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:orientation="vertical">
+            <include layout="@layout/flash_card_layout_back" />
+        </LinearLayout>
+
+    </com.example.animated_flip_view.AnimatedFlipView>
+
+
+</RelativeLayout>

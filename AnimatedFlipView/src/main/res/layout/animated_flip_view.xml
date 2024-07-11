@@ -1,0 +1,31 @@
+<merge xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <FrameLayout
+        android:id="@+id/container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <!-- Back view -->
+        <LinearLayout
+            android:id="@+id/backView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#80525863"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:visibility="gone">
+            <!-- Placeholder for the back view content -->
+        </LinearLayout>
+
+        <!-- Front view -->
+        <LinearLayout
+            android:id="@+id/frontView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/transparent"
+            android:gravity="center"
+            android:orientation="vertical">
+            <!-- Placeholder for the front view content -->
+        </LinearLayout>
+    </FrameLayout>
+</merge>
