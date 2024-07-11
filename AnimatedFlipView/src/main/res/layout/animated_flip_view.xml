@@ -1,7 +1,7 @@
 <merge xmlns:android="http://schemas.android.com/apk/res/android">
 
     <FrameLayout
-        android:id="@+id/container"
+        android:id="@+id/fl_root_container"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
@@ -10,11 +10,9 @@
             android:id="@+id/backView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="#80525863"
+            android:background="@android:color/transparent"
             android:gravity="center"
-            android:orientation="vertical"
-            android:visibility="gone">
-            <!-- Placeholder for the back view content -->
+            android:orientation="vertical">
         </LinearLayout>
 
         <!-- Front view -->
@@ -25,7 +23,6 @@
             android:background="@android:color/transparent"
             android:gravity="center"
             android:orientation="vertical">
-            <!-- Placeholder for the front view content -->
         </LinearLayout>
     </FrameLayout>
 </merge>
