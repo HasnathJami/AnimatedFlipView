@@ -54,7 +54,7 @@ dependencies {
         app:backFlipDuration="800"
         app:flipDirection="RIGHT_TO_LEFT"/>
 ```
-> Using the following code in your Activity
+> Use the following code in your Activity
 
 ```kotlin
 class YourActivity : AppCompatActivity() {
@@ -97,7 +97,7 @@ class YourActivity : AppCompatActivity() {
 
 ```
 
-> or Using the following code in your Fragment
+> or Use the following code in your Fragment
 
 ```kotlin
 class YourFragment : Fragment() {
