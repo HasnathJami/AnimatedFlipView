@@ -7,12 +7,13 @@ Animated Flip View is a dynamic and easy-to-use Android library that lets you fl
 Min SDK           : 21 - (Android – 5.0 Lollipop)
 Max(Target) SDK   : 34 - (Android - 14.0 UPSIDE_DOWN_CAKE)
 Language          : Kotlin
-Latest Version    : 2.0.0-alpha
+Latest Version    : 2.0.2-alpha
 License           : Apache 2.0
 Repository        : JitPack
 
-```
+## Get Started
 
+```
 > Step 1. Add the JitPack repository to your build file
 
 ```
@@ -44,7 +45,7 @@ Animated Flip View is under Apache 2.0 License, permitting personal and commerci
 Copyright 2024 Hasnath Jami Chowdhury
 
 Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
+You won't be using this file except in compliance with the License.
 You may obtain a copy of the License at
 
    http://www.apache.org/licenses/LICENSE-2.0
