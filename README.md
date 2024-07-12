@@ -54,6 +54,9 @@ dependencies {
         app:backFlipDuration="800"
         app:flipDirection="RIGHT_TO_LEFT"/>
 ```
+## Attributes (XML)
+flipDirection = {RIGHT_TO_LEFT, LEFT_TO_RIGHT, TOP_TO_BOTTOM, BOTTOM_TO_TOP}
+
 > Use the following code in your Activity
 
 ```kotlin
