@@ -13,6 +13,9 @@ Repository        : JitPack
 
 ```
 
+## Animated Flip View Demo
+![Example GIF](images/animatedFlipViewDemo.gif)
+
 ## Key Features
 
 - **Lightweight and Easy to Use:** Enables smooth view flipping with minimal coding effort.
