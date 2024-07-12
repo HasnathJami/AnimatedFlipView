@@ -1,3 +1,19 @@
+/*
+ * Copyright 2024 Hasnath Jami Chowdhury
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package com.hasnath.jami.animated_flip_view.afv_custom_view
 
 import android.animation.AnimatorInflater
@@ -62,31 +78,39 @@ class AnimatedFlipView @JvmOverloads constructor(
 
     @SuppressLint("ResourceType")
     fun flipToFront() {
-        val frontAnim = getAnimatorSet(flipDirection, true)
-        val backAnim = getAnimatorSet(flipDirection, false)
+        try {
+            val frontAnim = getAnimatorSet(flipDirection, true)
+            val backAnim = getAnimatorSet(flipDirection, false)
 
-        frontAnim.setTarget(backView)
-        backAnim.setTarget(frontView)
-        frontAnim.start()
-        backAnim.start()
+            frontAnim.setTarget(backView)
+            backAnim.setTarget(frontView)
+            frontAnim.start()
+            backAnim.start()
 
-        frontView.visibility = View.VISIBLE
-        backView.visibility = View.GONE
-        isFlipped = false
+            frontView.visibility = View.VISIBLE
+            backView.visibility = View.GONE
+            isFlipped = false
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
     }
 
     @SuppressLint("ResourceType")
     fun flipToBack() {
-        val frontAnim = getAnimatorSet(flipDirection, true)
-        val backAnim = getAnimatorSet(flipDirection, false)
+        try {
+            val frontAnim = getAnimatorSet(flipDirection, true)
+            val backAnim = getAnimatorSet(flipDirection, false)
 
-        backAnim.setTarget(backView)
-        frontAnim.start()
-        backAnim.start()
+            backAnim.setTarget(backView)
+            frontAnim.start()
+            backAnim.start()
 
-        frontView.visibility = View.GONE
-        backView.visibility = View.VISIBLE
-        isFlipped = true
+            backView.visibility = View.VISIBLE
+            frontView.visibility = View.GONE
+            isFlipped = true
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
     }
 
     private fun getAnimatorSet(direction: FlipDirection, isFront: Boolean): AnimatorSet {
@@ -100,25 +124,41 @@ class AnimatedFlipView @JvmOverloads constructor(
     }
 
     fun setFrontView(view: View) {
-        frontView = view
-        findViewById<ViewGroup>(R.id.frontView).addView(view)
+        try {
+            frontView = view
+            findViewById<ViewGroup>(R.id.frontView).addView(view)
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
     }
 
     fun setBackView(view: View) {
-        backView = view
-        findViewById<ViewGroup>(R.id.backView).addView(view)
+        try {
+            backView = view
+            findViewById<ViewGroup>(R.id.backView).addView(view)
+            backView.visibility = View.GONE
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
     }
 
     fun startAutoBackFlippingWithIntervals(delay: Long) {
-        handler.postDelayed({
+        try {
             flipToBack()
             handler.postDelayed({
                 flipToFront()
             }, delay)
-        }, delay)
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
     }
 
     fun removeHandler() {
-        handler.removeCallbacksAndMessages(null)
+        try {
+            handler.removeCallbacksAndMessages(null)
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+
     }
 }
