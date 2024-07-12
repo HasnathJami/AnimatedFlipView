@@ -11,7 +11,6 @@
         android:id="@+id/card_view"
         android:layout_width="match_parent"
         android:layout_height="300dp"
-
         android:layout_centerInParent="true"
         app:cardCornerRadius="8dp">
 
@@ -24,128 +23,44 @@
             android:padding="10dp">
 
             <TextView
-
-                android:id="@+id/rating"
-                android:layout_width="match_parent"
-
-
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/image_tv"
-
-
-                android:gravity="left"
-                android:text=""
-                android:textColor="@color/white"
-                android:textSize="13sp" />
-
-            <TextView
                 android:id="@+id/title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Title"
+                android:text="Mango"
                 android:textColor="@color/white"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
             <TextView
-
-                android:id="@+id/season_details"
+                android:id="@+id/mango_description"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/title"
-
-
-                android:layout_marginTop="5dp"
                 android:gravity="left"
-
-
-                android:text="2 season 7 episodes"
-                android:textColor="@color/white"
-                android:textSize="12sp"
-                android:visibility="gone" />
-
-            <TextView
-
-                android:id="@+id/release"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-
-                android:layout_below="@+id/season_details"
-
-
-                android:layout_marginTop="5dp"
-                android:gravity="left"
-
-
-                android:text="Released 2020"
-                android:textColor="@color/white"
-                android:textSize="10sp"
-                android:visibility="gone" />
-
-            <TextView
-
-                android:id="@+id/directior_title"
-                android:layout_width="match_parent"
-
-
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/season_details"
-
-
-                android:gravity="left"
-                android:text="Director"
+                android:text="The mango, often referred to as the king of fruits"
                 android:textColor="@color/white"
                 android:textSize="13sp"
                 android:textStyle="bold" />
 
             <TextView
-
-                android:id="@+id/director_name"
+                android:id="@+id/nutrients"
                 android:layout_width="match_parent"
-
-
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/season_details"
-
-
+                android:layout_below="@+id/mango_description"
                 android:gravity="left"
                 android:textColor="@color/white"
-
                 android:textSize="13sp"
-                tool:text="GiasUddin Salim" />
+                tool:text="Rich in vitamins A and C," />
 
             <TextView
-
-
                 android:layout_width="match_parent"
-
-
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/season_details"
-
-
+                android:layout_below="@+id/nutrients"
                 android:gravity="left"
-                android:text="Cast"
+                android:text="It offers a burst of flavor"
                 android:textColor="@color/white"
                 android:textSize="13sp"
                 android:textStyle="bold" />
-
-            <TextView
-
-                android:id="@+id/cast_name"
-                android:layout_width="match_parent"
-
-
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/season_details"
-
-
-                android:gravity="left"
-                android:text=""
-
-                android:textColor="@color/white"
-                android:textSize="13sp" />
-
 
         </LinearLayout>
     </androidx.cardview.widget.CardView>
