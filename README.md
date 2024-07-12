@@ -11,9 +11,11 @@ Latest Version    : 2.0.2-alpha
 License           : Apache 2.0
 Repository        : JitPack
 
+```
+
 ## Get Started
 
-```
+
 > Step 1. Add the JitPack repository to your build file
 
 ```
