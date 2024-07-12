@@ -54,7 +54,7 @@ dependencies {
         app:backFlipDuration="800"
         app:flipDirection="RIGHT_TO_LEFT"/>
 ```
-> Using the following code in your activity
+> Using the following code in your Activity
 
 ```kotlin
 class YourActivity : AppCompatActivity() {
@@ -77,12 +77,12 @@ class YourActivity : AppCompatActivity() {
         // Add back layout to parent view
         flipView.setBackView(backView)
 
-        /* Control the front view flip with view clicking */
+        /* Control the front view flipping with view clicking */
         frontView.findViewById<View>(R.id.view).setOnClickListener {
             flipView.flipToBack()
         }
 
-        /* Control the back view flip with view clicking */
+        /* Control the back view flipping with view clicking */
         backView.findViewById<View>(R.id.view).setOnClickListener {
             flipView.flipToFront()
         }
@@ -97,7 +97,7 @@ class YourActivity : AppCompatActivity() {
 
 ```
 
-> or Using the following code in your fragment
+> or Using the following code in your Fragment
 
 ```kotlin
 class YourFragment : Fragment() {
@@ -117,17 +117,17 @@ class YourFragment : Fragment() {
         // Set your back layout
         val backView = inflater.inflate(R.layout.back_side, null)
 
-        // Add front layout to parent view
+        // Add the front layout to parent view
         flipView.setFrontView(frontView)
 
-        // Add back layout to parent view
+        // Add the back layout to parent view
         flipView.setBackView(backView)
 
-        /* Control the front view flip with view clicking */
+        /* Control the front view flipping with view clicking */
         frontView.findViewById<View>(R.id.view).setOnClickListener {
             flipView.flipToBack()
         }
-         /* Control the back view flip with view clicking */
+         /* Control the back view flipping with view clicking */
         backView.findViewById<View>(R.id.view).setOnClickListener {
             flipView.flipToFront()
         }
