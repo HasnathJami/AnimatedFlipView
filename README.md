@@ -39,7 +39,7 @@ dependencyResolutionManagement {
 
 ```
 dependencies {
-	        implementation 'com.github.HasnathJami:AnimatedFlipView:latest_version'
+	        implementation 'com.github.HasnathJami:AnimatedFlipView:version'
 	}
 ```
 
