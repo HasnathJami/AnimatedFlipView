@@ -7,11 +7,22 @@ Animated Flip View is a dynamic and easy-to-use Android library that lets you fl
 Min SDK           : 21 - (Android – 5.0 Lollipop)
 Max(Target) SDK   : 34 - (Android - 14.0 UPSIDE_DOWN_CAKE)
 Language          : Kotlin
-Latest Version    : 2.0.0-alpha
+Latest Version    : 2.0.2-alpha
 License           : Apache 2.0
 Repository        : JitPack
 
 ```
+
+## Key Features
+
+- **Lightweight and Easy to Use:** Enables smooth view flipping with minimal coding effort.
+- **Flexible Flip Directions:** Supports flipping views in any direction—left, right, up, or down.
+- **Customizable Animations:** You can set custom durations and easing functions for animations.
+
+
+
+## Get Started
+
 
 > Step 1. Add the JitPack repository to your build file
 
@@ -28,8 +39,108 @@ dependencyResolutionManagement {
 
 ```
 dependencies {
-	        implementation 'com.github.HasnathJami:AnimatedFlipView:latest_version'
+	        implementation 'com.github.HasnathJami:AnimatedFlipView:version'
 	}
+```
+
+## Implementation
+> Add this custom view to your layout
+```xml
+    <com.hasnath.jami.animated_flip_view.afv_custom_view.AnimatedFlipView
+        android:id="@+id/animatedFlipView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:frontFlipDuration="800"
+        app:backFlipDuration="800"
+        app:flipDirection="RIGHT_TO_LEFT"/>
+```
+> Use the following code in your Activity
+
+```kotlin
+class YourActivity : AppCompatActivity() {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_your)
+
+        val flipView: AnimatedFlipView = findViewById(R.id.animatedFlipView)
+
+        // Set your front layout
+        val frontView = layoutInflater.inflate(R.layout.front_side, null)
+
+        // Set your back layout
+        val backView = layoutInflater.inflate(R.layout.back_side, null)
+
+        // Add front layout to parent view
+        flipView.setFrontView(frontView)
+
+        // Add back layout to parent view
+        flipView.setBackView(backView)
+
+        /* Control the front view flipping with view clicking */
+        frontView.findViewById<View>(R.id.view).setOnClickListener {
+            flipView.flipToBack()
+        }
+
+        /* Control the back view flipping with view clicking */
+        backView.findViewById<View>(R.id.view).setOnClickListener {
+            flipView.flipToFront()
+        }
+
+        /* Handle the auto back view flipping */
+        frontView.findViewById<View>(R.id.view).setOnClickListener {
+            flipView.flipToBack()
+            flipView.startAutoBackFlippingWithIntervals(delay = 1500)
+        }
+    }
+}
+
+```
+
+> or Use the following code in your Fragment
+
+```kotlin
+class YourFragment : Fragment() {
+
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        // Inflate the layout for this fragment
+        val view = inflater.inflate(R.layout.fragment_your, container, false)
+
+        val flipView: AnimatedFlipView = view.findViewById(R.id.animatedFlipView)
+
+        // Set your front layout
+        val frontView = inflater.inflate(R.layout.front_side, null)
+
+        // Set your back layout
+        val backView = inflater.inflate(R.layout.back_side, null)
+
+        // Add the front layout to parent view
+        flipView.setFrontView(frontView)
+
+        // Add the back layout to parent view
+        flipView.setBackView(backView)
+
+        /* Control the front view flipping with view clicking */
+        frontView.findViewById<View>(R.id.view).setOnClickListener {
+            flipView.flipToBack()
+        }
+         /* Control the back view flipping with view clicking */
+        backView.findViewById<View>(R.id.view).setOnClickListener {
+            flipView.flipToFront()
+        }
+
+        /* Handle the auto back view flipping */
+        frontView.findViewById<View>(R.id.view).setOnClickListener {
+            flipView.flipToBack()
+            flipView.startAutoBackFlippingWithIntervals(delay = 1500)
+        }
+
+        return view
+    }
+}
 ```
 
 ## Contribution
@@ -44,7 +155,7 @@ Animated Flip View is under Apache 2.0 License, permitting personal and commerci
 Copyright 2024 Hasnath Jami Chowdhury
 
 Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
+You won't be using this file except in compliance with the License.
 You may obtain a copy of the License at
 
    http://www.apache.org/licenses/LICENSE-2.0
