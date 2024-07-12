@@ -20,8 +20,15 @@ dependencies {
 	}
 ```
 
+## Contribution
+
+Contributions to the Animated Flip View library are welcome! Enhance the library with bug fixes, new features, or improvements. Your input makes it better for everyone. Visit the GitHub repository to collaborate with fellow developers.
+
 ## Licence
 
+Animated Flip View is under Apache 2.0 License, permitting personal and commercial use. You can use, modify, and distribute the library per the license terms.
+
+```
 Copyright 2024 Hasnath Jami Chowdhury
 
 Licensed under the Apache License, Version 2.0 (the "License");
@@ -36,3 +43,4 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 
+```
