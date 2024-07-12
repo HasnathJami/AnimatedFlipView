@@ -1,4 +1,4 @@
-package com.example.animated_flip_view.afv_custom_view
+package com.hasnath.jami.animated_flip_view.afv_custom_view
 
 import android.animation.AnimatorInflater
 import android.animation.AnimatorSet
@@ -11,8 +11,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.RelativeLayout
-import com.example.animated_flip_view.R
-import com.example.animated_flip_view.afv_utils.FlipDirection
+import com.hasnath.jami.animated_flip_view.R
+import com.hasnath.jami.animated_flip_view.afv_utils.FlipDirection
 
 class AnimatedFlipView @JvmOverloads constructor(
     context: Context,

@@ -1,39 +1,15 @@
-<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".AnimatedFlipViewHostActivity">
+    android:layout_height="match_parent">
 
-    <com.example.animated_flip_view.AnimatedFlipView
-        android:id="@+id/myEasyFlipView"
+    <com.hasnath.jami.animated_flip_view.afv_custom_view.AnimatedFlipView
+        android:id="@+id/animatedFlipView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:flipDuration="400">
-
-        <!-- Front Layout -->
-        <LinearLayout
-            android:id="@+id/frontViewContent"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:visibility="gone"
-            android:orientation="vertical">
-            <include layout="@layout/flash_card_layout_front" />
-        </LinearLayout>
-
-        <!-- Back Layout -->
-        <LinearLayout
-            android:id="@+id/backViewContent"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:visibility="gone"
-            android:orientation="vertical">
-            <include layout="@layout/flash_card_layout_back" />
-        </LinearLayout>
-
-    </com.example.animated_flip_view.AnimatedFlipView>
-
-
+        app:frontFlipDuration="800"
+        app:backFlipDuration="800"
+        app:flipDirection="RIGHT_TO_LEFT"/>
 </RelativeLayout>

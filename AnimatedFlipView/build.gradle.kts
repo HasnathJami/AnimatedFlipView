@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.animated_flip_view"
+    namespace = "com.hasnath.jami.animated_flip_view"
     compileSdk = 34
 
     defaultConfig {

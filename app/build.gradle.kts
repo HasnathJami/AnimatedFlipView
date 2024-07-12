@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.animatedflipviewhost"
+    namespace = "com.hasnath.jami.animatedflipviewhost"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.animatedflipviewhost"
+        applicationId = "com.hasnath.jami.animatedflipviewhost"
         minSdk = 21
         targetSdk = 34
         versionCode = 1

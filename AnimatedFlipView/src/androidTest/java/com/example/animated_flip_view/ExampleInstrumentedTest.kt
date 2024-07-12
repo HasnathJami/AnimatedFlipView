@@ -1,4 +1,4 @@
-package com.example.animated_flip_view
+package com.hasnath.jami.animated_flip_view
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

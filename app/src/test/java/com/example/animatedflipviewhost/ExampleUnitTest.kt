@@ -1,4 +1,4 @@
-package com.example.animatedflipviewhost
+package com.hasnath.jami.animatedflipviewhost
 
 import org.junit.Test
 

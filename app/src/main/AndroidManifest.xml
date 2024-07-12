@@ -13,7 +13,7 @@
         android:theme="@style/Theme.AnimatedFlipViewHost"
         tools:targetApi="31">
         <activity
-            android:name="com.example.animatedflipviewhost.AnimatedFlipViewHostActivity"
+            android:name=".AnimatedFlipViewHostActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
