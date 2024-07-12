@@ -1,5 +1,17 @@
-# AnimatedFlipView
-An animated flip view library
+# Animated Flip View
+
+Animated Flip View is a dynamic and easy-to-use Android library that lets you flip views with smooth animations. You can flip views to the front or back in any direction and set custom durations for the animations. This library provides an intuitive way to add engaging visual transitions to your app, enhancing user experience without complex coding.
+
+```
+
+Min SDK           : 21 - (Android – 5.0 Lollipop)
+Max(Target) SDK   : 34 - (Android - 14.0 UPSIDE_DOWN_CAKE)
+Language          : Kotlin
+Latest Version    : 2.0.0-alpha
+License           : Apache 2.0
+Repository        : JitPack
+
+```
 
 > Step 1. Add the JitPack repository to your build file
 
@@ -20,8 +32,15 @@ dependencies {
 	}
 ```
 
+## Contribution
+
+Contributions to the Animated Flip View library are welcome! Enhance the library with bug fixes, new features, or improvements. Your input makes it better for everyone. Visit the GitHub repository to collaborate with fellow developers.
+
 ## Licence
 
+Animated Flip View is under Apache 2.0 License, permitting personal and commercial use. You can use, modify, and distribute the library per the license terms.
+
+```
 Copyright 2024 Hasnath Jami Chowdhury
 
 Licensed under the Apache License, Version 2.0 (the "License");
@@ -36,3 +55,4 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 
+```
