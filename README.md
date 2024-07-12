@@ -59,7 +59,8 @@ dependencies {
 ## Attributes (XML)
 flipDirection = {RIGHT_TO_LEFT, LEFT_TO_RIGHT, TOP_TO_BOTTOM, BOTTOM_TO_TOP}
 
-> Use the following code in your Activity
+
+### Implementation in Activity
 
 ```kotlin
 class YourActivity : AppCompatActivity() {
@@ -113,7 +114,7 @@ class YourActivity : AppCompatActivity() {
 
 ```
 
-> or Use the following code in your Fragment
+### Implementation in Fragment
 
 ```kotlin
 class YourFragment : Fragment() {
@@ -167,7 +168,7 @@ class YourFragment : Fragment() {
 }
 ```
 
-> or Use the following code in your Recyclerview
+### Implementation in RecyclerView
 ```kotlin
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
