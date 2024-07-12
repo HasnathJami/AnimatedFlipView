@@ -13,6 +13,14 @@ Repository        : JitPack
 
 ```
 
+## Key Features
+
+- **Lightweight and Easy to Use:** Enables smooth view flipping with minimal coding effort.
+- **Flexible Flip Directions:** Supports flipping views in any direction—left, right, up, or down.
+- **Customizable Animations:** You can set custom durations and easing functions for animations.
+
+
+
 ## Get Started
 
 
