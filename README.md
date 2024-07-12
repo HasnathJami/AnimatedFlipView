@@ -13,7 +13,6 @@ Repository        : JitPack
 
 ```
 
-## Animated Flip View Demo
 ![Example GIF](images/animatedFlipViewDemo.gif)
 
 ## Key Features
