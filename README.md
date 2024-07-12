@@ -7,7 +7,7 @@ Animated Flip View is a dynamic and easy-to-use Android library that lets you fl
 Min SDK           : 21 - (Android – 5.0 Lollipop)
 Max(Target) SDK   : 34 - (Android - 14.0 UPSIDE_DOWN_CAKE)
 Language          : Kotlin
-Latest Version    : 2.0.2-alpha
+Latest Version    : 2.0.2
 License           : Apache 2.0
 Repository        : JitPack
 
@@ -44,7 +44,7 @@ dependencies {
 ```
 
 ## Implementation
-> Add this custom view to your layout
+> Add this custom view to your layout or single-row design
 ```xml
     <com.hasnath.jami.animated_flip_view.afv_custom_view.AnimatedFlipView
         android:id="@+id/animatedFlipView"
@@ -62,17 +62,19 @@ flipDirection = {RIGHT_TO_LEFT, LEFT_TO_RIGHT, TOP_TO_BOTTOM, BOTTOM_TO_TOP}
 ```kotlin
 class YourActivity : AppCompatActivity() {
 
+    private lateinit var flipView: AnimatedFlipView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_your)
 
-        val flipView: AnimatedFlipView = findViewById(R.id.animatedFlipView)
+        flipView = findViewById(R.id.animatedFlipView)
 
         // Set your front layout
-        val frontView = layoutInflater.inflate(R.layout.front_side, null)
+        val frontView = layoutInflater.inflate(R.layout.your_front_side_layout, null)
 
         // Set your back layout
-        val backView = layoutInflater.inflate(R.layout.back_side, null)
+        val backView = layoutInflater.inflate(R.layout.your_back_side_layout, null)
 
         // Add front layout to parent view
         flipView.setFrontView(frontView)
@@ -81,22 +83,31 @@ class YourActivity : AppCompatActivity() {
         flipView.setBackView(backView)
 
         /* Control the front view flipping with view clicking */
-        frontView.findViewById<View>(R.id.view).setOnClickListener {
+        frontView.findViewById<Your_View>(R.id.view_id).setOnClickListener {
             flipView.flipToBack()
         }
 
         /* Control the back view flipping with view clicking */
-        backView.findViewById<View>(R.id.view).setOnClickListener {
+        backView.findViewById<Your_View>(R.id.view_id).setOnClickListener {
             flipView.flipToFront()
         }
 
+         //OR
         /* Handle the auto back view flipping */
-        frontView.findViewById<View>(R.id.view).setOnClickListener {
-            flipView.flipToBack()
-            flipView.startAutoBackFlippingWithIntervals(delay = 1500)
+//        frontView.findViewById<Your_View>(R.id.view_id).setOnClickListener {
+//        flipView.startAutoBackFlippingWithIntervals(delay = 1500)
         }
     }
+
+   // Release the handler when the screen destroys
+    override fun onDestroy() {
+        super.onDestroy()
+        flipView.removeHandler()
+
+    }
 }
+
+
 
 ```
 
@@ -105,20 +116,21 @@ class YourActivity : AppCompatActivity() {
 ```kotlin
 class YourFragment : Fragment() {
 
+    private lateinit var flipView: AnimatedFlipView
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_your, container, false)
-
-        val flipView: AnimatedFlipView = view.findViewById(R.id.animatedFlipView)
+        flipView = view.findViewById(R.id.animatedFlipView)
 
         // Set your front layout
-        val frontView = inflater.inflate(R.layout.front_side, null)
+        val frontView = inflater.inflate(R.layout.your_front_side_layout, null)
 
         // Set your back layout
-        val backView = inflater.inflate(R.layout.back_side, null)
+        val backView = inflater.inflate(R.layout.your_back_side_layout, null)
 
         // Add the front layout to parent view
         flipView.setFrontView(frontView)
@@ -127,23 +139,74 @@ class YourFragment : Fragment() {
         flipView.setBackView(backView)
 
         /* Control the front view flipping with view clicking */
-        frontView.findViewById<View>(R.id.view).setOnClickListener {
+        frontView.findViewById<Your_View>(R.id.view_id).setOnClickListener {
             flipView.flipToBack()
         }
          /* Control the back view flipping with view clicking */
-        backView.findViewById<View>(R.id.view).setOnClickListener {
+        backView.findViewById<Your_View>(R.id.view_id).setOnClickListener {
             flipView.flipToFront()
         }
 
+        //OR
         /* Handle the auto back view flipping */
-        frontView.findViewById<View>(R.id.view).setOnClickListener {
-            flipView.flipToBack()
-            flipView.startAutoBackFlippingWithIntervals(delay = 1500)
-        }
+ //       frontView.findViewById<Your_View>(R.id.view_id).setOnClickListener {
+ //           flipView.startAutoBackFlippingWithIntervals(delay = 1500)
+ //       }
 
         return view
     }
+
+    // Release the handler when the fragment view destroys
+    override fun onDestroyView() {
+        super.onDestroyView()
+        flipView?.removeHandler()
+    }
+
 }
+```
+
+> or Use the following code in your Recyclerview
+```kotlin
+    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+
+        private val flipView: AnimatedFlipView = itemView.findViewById(R.id.animatedFlipView)
+
+        // Set your front layout
+        private val frontView: View = LayoutInflater.from(itemView.context).inflate(R.layout.your_front_side_layout, null)
+
+        // Set your back layout
+        private val backView: View = LayoutInflater.from(itemView.context).inflate(R.layout.your_back_side_layout, null)
+
+        init {
+            // Set your front layout
+            flipView.setFrontView(frontView)
+
+            // Set your back layout
+            flipView.setBackView(backView)
+
+            /* Control the front view flipping with view clicking */
+            frontView.findViewById<Your_View>(R.id.view_id).setOnClickListener {
+                flipView.flipToBack()
+            }
+
+            /* Control the back view flipping with view clicking */
+            backView.findViewById<Your_View>(R.id.view_id).setOnClickListener {
+                flipView.flipToFront()
+            }
+
+             //OR
+             /* Handle the auto back view flipping */          
+//            frontView.findViewById<Your_View>(R.id.view_id).setOnClickListener {
+//                flipView.startAutoBackFlippingWithIntervals(delay = 1500)
+//            }
+        }
+
+        fun bind(item: Item) {
+            // Bind data to your views here
+            // Add other bindings as needed
+        }
+    }
+
 ```
 
 ## Contribution
