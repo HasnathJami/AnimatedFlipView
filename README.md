@@ -43,6 +43,106 @@ dependencies {
 	}
 ```
 
+## Implementation
+> Add this custom view to your layout
+```xml
+    <com.hasnath.jami.animated_flip_view.afv_custom_view.AnimatedFlipView
+        android:id="@+id/animatedFlipView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:frontFlipDuration="800"
+        app:backFlipDuration="800"
+        app:flipDirection="RIGHT_TO_LEFT"/>
+```
+> Using the following code in your activity
+
+```kotlin
+class YourActivity : AppCompatActivity() {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_your)
+
+        val flipView: AnimatedFlipView = findViewById(R.id.animatedFlipView)
+
+        // Set your front layout
+        val frontView = layoutInflater.inflate(R.layout.front_side, null)
+
+        // Set your back layout
+        val backView = layoutInflater.inflate(R.layout.back_side, null)
+
+        // Add front layout to parent view
+        flipView.setFrontView(frontView)
+
+        // Add back layout to parent view
+        flipView.setBackView(backView)
+
+        /* Control the front view flip with view clicking */
+        frontView.findViewById<View>(R.id.view).setOnClickListener {
+            flipView.flipToBack()
+        }
+
+        /* Control the back view flip with view clicking */
+        backView.findViewById<View>(R.id.view).setOnClickListener {
+            flipView.flipToFront()
+        }
+
+        /* Handle the auto back view flipping */
+        frontView.findViewById<View>(R.id.view).setOnClickListener {
+            flipView.flipToBack()
+            flipView.startAutoBackFlippingWithIntervals(delay = 1500)
+        }
+    }
+}
+
+```
+
+> or Using the following code in your fragment
+
+```kotlin
+class YourFragment : Fragment() {
+
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        // Inflate the layout for this fragment
+        val view = inflater.inflate(R.layout.fragment_your, container, false)
+
+        val flipView: AnimatedFlipView = view.findViewById(R.id.animatedFlipView)
+
+        // Set your front layout
+        val frontView = inflater.inflate(R.layout.front_side, null)
+
+        // Set your back layout
+        val backView = inflater.inflate(R.layout.back_side, null)
+
+        // Add front layout to parent view
+        flipView.setFrontView(frontView)
+
+        // Add back layout to parent view
+        flipView.setBackView(backView)
+
+        /* Control the front view flip with view clicking */
+        frontView.findViewById<View>(R.id.view).setOnClickListener {
+            flipView.flipToBack()
+        }
+         /* Control the back view flip with view clicking */
+        backView.findViewById<View>(R.id.view).setOnClickListener {
+            flipView.flipToFront()
+        }
+
+        /* Handle the auto back view flipping */
+        frontView.findViewById<View>(R.id.view).setOnClickListener {
+            flipView.flipToBack()
+            flipView.startAutoBackFlippingWithIntervals(delay = 1500)
+        }
+
+        return view
+    }
+}
+```
+
 ## Contribution
 
 Contributions to the Animated Flip View library are welcome! Enhance the library with bug fixes, new features, or improvements. Your input makes it better for everyone. Visit the GitHub repository to collaborate with fellow developers.
