@@ -10,6 +10,7 @@ Language          : Kotlin
 Latest Version    : 2.0.2
 License           : Apache 2.0
 Repository        : JitPack
+Compatible        : Java, Kotlin
 
 ```
 
