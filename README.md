@@ -62,7 +62,67 @@ flipDirection = {RIGHT_TO_LEFT, LEFT_TO_RIGHT, TOP_TO_BOTTOM, BOTTOM_TO_TOP}
 
 
 ### Implementation in Activity
+> Java
+```java
+public class YourActivity extends AppCompatActivity {
 
+    private AnimatedFlipView flipView;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_your);
+
+        flipView = findViewById(R.id.animatedFlipView);
+
+        // Set your front layout
+        View frontView = getLayoutInflater().inflate(R.layout.your_front_side_layout, null);
+
+        // Set your back layout
+        View backView = getLayoutInflater().inflate(R.layout.your_back_side_layout, null);
+
+        // Add front layout to parent view
+        flipView.setFrontView(frontView);
+
+        // Add back layout to parent view
+        flipView.setBackView(backView);
+
+        // Control the front view flipping with view clicking
+        frontView.findViewById(R.id.view_id).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                flipView.flipToBack();
+            }
+        });
+
+        // Control the back view flipping with view clicking
+        backView.findViewById(R.id.view_id).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                flipView.flipToFront();
+            }
+        });
+
+        // OR
+        // Handle the auto back view flipping
+        // frontView.findViewById(R.id.view_id).setOnClickListener(new View.OnClickListener() {
+        //    @Override
+        //    public void onClick(View v) {
+        //        flipView.startAutoBackFlippingWithIntervals(1500);
+        //    }
+        // });
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        flipView.removeHandler();
+    }
+}
+
+```
+
+> Kotlin
 ```kotlin
 class YourActivity : AppCompatActivity() {
 
@@ -110,13 +170,75 @@ class YourActivity : AppCompatActivity() {
 
     }
 }
-
-
-
 ```
 
 ### Implementation in Fragment
 
+> Java
+```java
+public class YourFragment extends Fragment {
+
+    private AnimatedFlipView flipView;
+
+    @Nullable
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
+                             @Nullable Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        View view = inflater.inflate(R.layout.fragment_your, container, false);
+        flipView = view.findViewById(R.id.animatedFlipView);
+
+        // Set your front layout
+        View frontView = inflater.inflate(R.layout.your_front_side_layout, null);
+
+        // Set your back layout
+        View backView = inflater.inflate(R.layout.your_back_side_layout, null);
+
+        // Add the front layout to parent view
+        flipView.setFrontView(frontView);
+
+        // Add the back layout to parent view
+        flipView.setBackView(backView);
+
+        // Control the front view flipping with view clicking
+        frontView.findViewById(R.id.view_id).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                flipView.flipToBack();
+            }
+        });
+
+        // Control the back view flipping with view clicking
+        backView.findViewById(R.id.view_id).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                flipView.flipToFront();
+            }
+        });
+
+        // OR
+        // Handle the auto back view flipping
+        // frontView.findViewById(R.id.view_id).setOnClickListener(new View.OnClickListener() {
+        //    @Override
+        //    public void onClick(View v) {
+        //        flipView.startAutoBackFlippingWithIntervals(1500);
+        //    }
+        // });
+
+        return view;
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        if (flipView != null) {
+            flipView.removeHandler();
+        }
+    }
+}
+
+```
+> Kotlin
 ```kotlin
 class YourFragment : Fragment() {
 
@@ -170,6 +292,67 @@ class YourFragment : Fragment() {
 ```
 
 ### Implementation in RecyclerView
+> Java
+```java
+public class ViewHolder extends RecyclerView.ViewHolder {
+
+    private AnimatedFlipView flipView;
+    private View frontView;
+    private View backView;
+
+    public ViewHolder(@NonNull View itemView) {
+        super(itemView);
+
+        flipView = itemView.findViewById(R.id.animatedFlipView);
+
+        // Set your front layout
+        frontView = LayoutInflater.from(itemView.getContext()).inflate(R.layout.your_front_side_layout, null);
+
+        // Set your back layout
+        backView = LayoutInflater.from(itemView.getContext()).inflate(R.layout.your_back_side_layout, null);
+
+        // Set your front layout
+        flipView.setFrontView(frontView);
+
+        // Set your back layout
+        flipView.setBackView(backView);
+
+        // Control the front view flipping with view clicking
+        frontView.findViewById(R.id.view_id).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                flipView.flipToBack();
+            }
+        });
+
+        // Control the back view flipping with view clicking
+        backView.findViewById(R.id.view_id).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                flipView.flipToFront();
+            }
+        });
+
+        // OR
+        // Handle the auto back view flipping
+        // frontView.findViewById(R.id.view_id).setOnClickListener(new View.OnClickListener() {
+        //    @Override
+        //    public void onClick(View v) {
+        //        flipView.startAutoBackFlippingWithIntervals(1500);
+        //    }
+        // });
+    }
+
+    public void bind(Item item) {
+        // Bind data to your views here
+        // Add other bindings as needed
+    }
+}
+
+
+```
+
+> Kotlin
 ```kotlin
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
